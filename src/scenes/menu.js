@@ -7,8 +7,11 @@ export default class Menu extends Phaser.Scene {
   }
 
   create() {
-    st.bg = this.add.image(248, 300, 'bg').setScale(0.7);
-    st.optionButton = this.add.image(250, 240, 'play').setScale(0.4);
+    st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
+    st.optionButton = this.add.image(400, 240, 'play').setScale(0.8);
+    st.optionButton = this.add.image(400, 340, 'scores').setScale(0.8);
+    st.optionButton = this.add.image(400, 440, 'help').setScale(0.8);
+    st.optionButton = this.add.image(400, 540, 'back').setScale(0.8);
   }
 
   update() {
