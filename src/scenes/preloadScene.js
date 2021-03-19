@@ -11,6 +11,7 @@ import monster2 from '../assets/monstertwo.png';
 
 import dude from '../assets/dude.png';
 import background from '../assets/Background/Background_01.png';
+import background2 from '../assets/Background/Background_03.png';
 
 import ground02 from '../assets/Platformer/Ground_02.png';
 import ground03 from '../assets/Platformer/Ground_03.png';
@@ -70,6 +71,7 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 45,
     });
     this.load.image('background', background);
+    this.load.image('background2', background2);
 
     this.load.spritesheet('monster', monster1, {
       frameWidth: 50,

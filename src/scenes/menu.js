@@ -24,6 +24,12 @@ export default class Menu extends Phaser.Scene {
 
     st.backButton.setInteractive({ useHandCursor: true });
     this.onHover(st.backButton);
+
+    st.playButton.on('pointerup', () => {
+      console.log(this.scene)
+      this.scene.stop();
+      this.scene.start('Level');
+    });
   }
 
   update() {
