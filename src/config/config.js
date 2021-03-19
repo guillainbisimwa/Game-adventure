@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import Preload from '../scenes/preloadScene';
 
 export default {
   type: Phaser.AUTO,
@@ -13,4 +14,7 @@ export default {
       enableBody: true,
     },
   },
+  scene: [
+    Preload,
+  ],
 };
