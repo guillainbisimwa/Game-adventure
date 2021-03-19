@@ -1,7 +1,15 @@
 import Phaser from 'phaser';
 
+import bg from '../assets/bg.png';
+import play from '../assets/play.png';
+import bomb from '../assets/bomb.png';
+import scores from '../assets/scores.png';
+import help from '../assets/help.png';
+import back from '../assets/back.png';
+import monster1 from '../assets/monsterOne.png';
+import monster2 from '../assets/monstertwo.png';
+
 import dude from '../assets/dude.png';
-import monster from '../assets/monster.png';
 import background from '../assets/Background/Background_01.png';
 
 import ground02 from '../assets/Platformer/Ground_02.png';
@@ -24,10 +32,6 @@ import decorBrick from '../assets/Platformer/Decor_Brick.png';
 import spikes from '../assets/Platformer/Spikes.png';
 import door01 from '../assets/Platformer/Door_01.png';
 
-import bg from '../assets/bg.png';
-import play from '../assets/play.png';
-
-
 export default class Preload extends Phaser.Scene {
   constructor() {
     super('Preload');
@@ -36,6 +40,10 @@ export default class Preload extends Phaser.Scene {
   preload() {
     this.load.image('bg', bg);
     this.load.image('play', play);
+    this.load.image('bomb', bomb);
+    this.load.image('scores', scores);
+    this.load.image('help', help);
+    this.load.image('back', back);
 
     this.load.image('ground02', ground02);
     this.load.image('ground03', ground03);
@@ -63,7 +71,12 @@ export default class Preload extends Phaser.Scene {
     });
     this.load.image('background', background);
 
-    this.load.spritesheet('monster', monster, {
+    this.load.spritesheet('monster', monster1, {
+      frameWidth: 50,
+      frameHeight: 70,
+    });
+
+    this.load.spritesheet('monster', monster2, {
       frameWidth: 50,
       frameHeight: 70,
     });
