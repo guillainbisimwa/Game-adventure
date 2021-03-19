@@ -24,12 +24,19 @@ import decorBrick from '../assets/Platformer/Decor_Brick.png';
 import spikes from '../assets/Platformer/Spikes.png';
 import door01 from '../assets/Platformer/Door_01.png';
 
+import bg from '../assets/bg.png';
+import play from '../assets/play.png';
+
+
 export default class Preload extends Phaser.Scene {
   constructor() {
     super('Preload');
   }
 
   preload() {
+    this.load.image('bg', bg);
+    this.load.image('play', play);
+
     this.load.image('ground02', ground02);
     this.load.image('ground03', ground03);
     this.load.image('ground04', ground04);
@@ -64,6 +71,6 @@ export default class Preload extends Phaser.Scene {
   }
 
   complete() {
-    
+    this.scene.start('Menu');
   }
 }

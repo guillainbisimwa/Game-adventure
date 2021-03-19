@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import Menu from '../scenes/menu';
 import Preload from '../scenes/preloadScene';
 
 export default {
@@ -16,5 +17,6 @@ export default {
   },
   scene: [
     Preload,
+    Menu,
   ],
 };
