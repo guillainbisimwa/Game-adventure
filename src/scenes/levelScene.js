@@ -61,7 +61,7 @@ export default class Level extends Phaser.Scene {
     this.physics.add.overlap(
       state.player,
       state.coin,
-      this.collectStar,
+      this.collectReward,
       null,
       this,
     );
@@ -106,5 +106,11 @@ export default class Level extends Phaser.Scene {
         }, 2000);
       }
     }
+  }
+
+  collectReward(_player, coin) {
+    coin.disableBody(true, true);
+    state.score += 5;
+    state.scoreText.setText(`Score: ${state.score}`);
   }
 }
