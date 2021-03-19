@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { anim } from '../config/anim';
 import { state } from '../config/state';
 import { platformer } from './platformer';
 
@@ -35,9 +36,65 @@ export default class Level extends Phaser.Scene {
     state.coin = this.physics.add.staticGroup();
     state.apple = this.physics.add.staticGroup();
 
+    anim(this);
     platformer(this, state);
+
+    this.cameras.main.setBounds(
+      0,
+      0,
+      state.background2.width,
+      600,
+    );
+    this.physics.world.setBounds(
+      0,
+      0,
+      state.width,
+      state.background.height + state.player.height,
+    );
+
+    this.cameras.main.startFollow(state.player, true, 0.5, 0.5);
+    state.player.setCollideWorldBounds(true);
+    this.physics.add.collider(state.player, state.platforms);
+    this.physics.add.collider(state.goal, state.platforms);
+    //this.physics.add.collider(state.bombs, state.platforms);
+
+    this.physics.add.overlap(
+      state.player,
+      state.coin,
+      this.collectStar,
+      null,
+      this,
+    );
+    state.cursors = this.input.keyboard.createCursorKeys();
   }
 
   update() {
+    if (state.active) {
+      if (state.cursors.right.isDown) {
+        state.player.setVelocityX(state.speed);
+        state.player.anims.play('right', true);
+      } else if (state.cursors.left.isDown) {
+        state.player.setVelocityX(-state.speed);
+        state.player.anims.play('left', true);
+      } else {
+        state.player.setVelocityX(0);
+        state.player.anims.play('idle', true);
+      }
+
+      if (
+        (Phaser.Input.Keyboard.JustDown(state.cursors.space)
+          || state.cursors.up.isDown)
+        && state.player.body.touching.down
+      ) {
+        state.player.anims.play('jump', true);
+        state.player.setVelocityY(-500);
+      }
+
+      if (!state.player.body.touching.down) {
+        state.player.anims.play('jump', true);
+      }
+
+      
+    }
   }
 }

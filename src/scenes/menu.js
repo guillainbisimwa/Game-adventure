@@ -26,9 +26,12 @@ export default class Menu extends Phaser.Scene {
     this.onHover(st.backButton);
 
     st.playButton.on('pointerup', () => {
-      console.log(this.scene)
       this.scene.stop();
       this.scene.start('Level');
+      // st.score = 0;
+      // saveScore();
+      // st.called = false;
+      // setCalled();
     });
   }
 
