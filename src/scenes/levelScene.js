@@ -94,7 +94,17 @@ export default class Level extends Phaser.Scene {
         state.player.anims.play('jump', true);
       }
 
-      
+      if (state.player.y > state.background2.height) {
+        this.add.text(state.player.x, 100, 'Game Over!', {
+          fontFamily: 'Arial',
+          fontSize: 36,
+          color: '#000000',
+        });
+        setTimeout(() => {
+          this.scene.stop();
+          this.scene.start('GameOver');
+        }, 2000);
+      }
     }
   }
 }
