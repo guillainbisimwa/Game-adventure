@@ -5,16 +5,20 @@ import Preload from '../scenes/preloadScene';
 
 export default {
   type: Phaser.AUTO,
-  parent: 'container',
   width: 800,
   height: 600,
+  fps: { target: 60 },
+  backgroundColor: '333',
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false,
-      gravity: { y: 300 },
+      gravity: { y: 800 },
       enableBody: true,
     },
+  },
+  parent: 'form',
+  dom: {
+    createContainer: true,
   },
   scene: [
     Preload,
