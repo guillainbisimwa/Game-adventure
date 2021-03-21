@@ -78,7 +78,7 @@ export default class Preload extends Phaser.Scene {
       frameHeight: 70,
     });
 
-    this.load.spritesheet('monster', monster2, {
+    this.load.spritesheet('monster2', monster2, {
       frameWidth: 50,
       frameHeight: 70,
     });

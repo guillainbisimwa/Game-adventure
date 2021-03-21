@@ -30,7 +30,9 @@ export default class Level extends Phaser.Scene {
       fontSize: '40px',
       fill: '#ff0000',
     });
-    state.player = this.physics.add.sprite(80, 110, 'dude').setScale(1);
+    state.player = this.physics.add.sprite(80, 110, 'dude');
+    state.monster = this.physics.add.sprite(310, 310, 'monster');
+    state.monster2 = this.physics.add.sprite(80, 110, 'monster2');
     state.platforms = this.physics.add.staticGroup();
     state.spikes = this.physics.add.staticGroup();
     state.coin = this.physics.add.staticGroup();
@@ -57,6 +59,31 @@ export default class Level extends Phaser.Scene {
     this.physics.add.collider(state.player, state.platforms);
     this.physics.add.collider(state.goal, state.platforms);
     //this.physics.add.collider(state.bombs, state.platforms);
+    //this.physics.add.sprite(200, 100, 'monster2');
+    //state.monster.setCollideWorldBounds(true);
+    this.physics.add.collider(state.monster, state.platforms);
+
+    this.physics.add.collider(state.monster2, state.spikes);
+
+    state.monster.move = this.tweens.add({
+      targets: state.monster,
+      x: 600,
+      //alpha: { start: 200, from: 200, to: 300 },
+      ease: 'Linear',
+      repeat: -1,
+      duration: 1900,
+      yoyo: true,
+    });
+
+    state.monster2.move = this.tweens.add({
+      targets: state.monster,
+      x: 600,
+      //alpha: { start: 200, from: 200, to: 300 },
+      ease: 'Linear',
+      repeat: -1,
+      duration: 1900,
+      yoyo: true,
+    });
 
     this.physics.add.overlap(
       state.player,
