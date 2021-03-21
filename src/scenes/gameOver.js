@@ -10,12 +10,21 @@ export default class GameOver extends Phaser.Scene {
     st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
     st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
+    st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
     st.scoresButton.setInteractive({ useHandCursor: true });
     this.onHover(st.scoresButton);
 
     st.helpButton.setInteractive({ useHandCursor: true });
     this.onHover(st.helpButton);
+
+    st.backButton.setInteractive({ useHandCursor: true });
+    this.onHover(st.backButton);
+
+    st.backButton.on('pointerup', () => {
+      this.scene.stop();
+      this.scene.start('Menu');
+    });
   }
 
   update() {

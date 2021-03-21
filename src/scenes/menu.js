@@ -11,7 +11,6 @@ export default class Menu extends Phaser.Scene {
     st.playButton = this.add.image(400, 240, 'play').setScale(0.8);
     st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
-    st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
     st.playButton.setInteractive({ useHandCursor: true });
     this.onHover(st.playButton);
@@ -21,9 +20,6 @@ export default class Menu extends Phaser.Scene {
 
     st.helpButton.setInteractive({ useHandCursor: true });
     this.onHover(st.helpButton);
-
-    st.backButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.backButton);
 
     st.playButton.on('pointerup', () => {
       this.scene.stop();
