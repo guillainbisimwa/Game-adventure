@@ -84,4 +84,26 @@ export const platformer = (context, state) => {
     null,
     context,
   );
+
+  context.physics.add.overlap(
+    state.player,
+    state.monster,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
+
+  context.physics.add.overlap(
+    state.player,
+    state.monster2,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
 };

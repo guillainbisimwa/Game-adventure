@@ -31,8 +31,8 @@ export default class Level extends Phaser.Scene {
       fill: '#ff0000',
     });
     state.player = this.physics.add.sprite(80, 110, 'dude');
-    state.monster = this.physics.add.sprite(310, 310, 'monster');
-    state.monster2 = this.physics.add.sprite(80, 110, 'monster2');
+    state.monster = this.physics.add.sprite(310, 364, 'monster');
+    state.monster2 = this.physics.add.sprite(310, 428, 'monster2');
     state.platforms = this.physics.add.staticGroup();
     state.spikes = this.physics.add.staticGroup();
     state.coin = this.physics.add.staticGroup();
@@ -63,7 +63,7 @@ export default class Level extends Phaser.Scene {
     //state.monster.setCollideWorldBounds(true);
     this.physics.add.collider(state.monster, state.platforms);
 
-    this.physics.add.collider(state.monster2, state.spikes);
+    this.physics.add.collider(state.monster2, state.platforms);
 
     state.monster.move = this.tweens.add({
       targets: state.monster,
@@ -71,12 +71,12 @@ export default class Level extends Phaser.Scene {
       //alpha: { start: 200, from: 200, to: 300 },
       ease: 'Linear',
       repeat: -1,
-      duration: 1900,
+      duration: 1500,
       yoyo: true,
     });
 
     state.monster2.move = this.tweens.add({
-      targets: state.monster,
+      targets: state.monster2,
       x: 600,
       //alpha: { start: 200, from: 200, to: 300 },
       ease: 'Linear',
