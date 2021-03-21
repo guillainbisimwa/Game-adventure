@@ -128,4 +128,48 @@ export const platformer = (context, state) => {
     null,
     context,
   );
+
+  context.physics.add.overlap(
+    state.player,
+    state.spikes1,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
+
+  context.physics.add.overlap(
+    state.player,
+    state.spikes2,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
+
+  context.physics.add.overlap(
+    state.player,
+    state.spikes3,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
+
+  context.physics.add.overlap(
+    state.player,
+    state.spikes4,
+    () => {
+      context.scene.stop();
+      context.scene.start('GameOver');
+    },
+    null,
+    context,
+  );
 };
