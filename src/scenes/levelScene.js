@@ -30,16 +30,10 @@ export default class Level extends Phaser.Scene {
       fontSize: '40px',
       fill: '#ff0000',
     });
+
     state.player = this.physics.add.sprite(80, 110, 'dude');
     state.monster = this.physics.add.sprite(310, 364, 'monster');
-    state.monster2 = this.physics.add.sprite(310, 428, 'monster2');
-    state.monster3 = this.physics.add.sprite(800, 428, 'monster');
     state.monster4 = this.physics.add.sprite(1000, 328, 'monster');
-
-    state.spikes1 = this.physics.add.image(232, 0, 'spikes');
-    state.spikes2 = this.physics.add.image(678, 10, 'spikes');
-    state.spikes3 = this.physics.add.image(942, 10, 'spikes');
-    state.spikes4 = this.physics.add.image(1142, 0, 'spikes');
 
     state.platforms = this.physics.add.staticGroup();
     state.spikes = this.physics.add.staticGroup();
@@ -66,91 +60,25 @@ export default class Level extends Phaser.Scene {
     state.player.setCollideWorldBounds(true);
     this.physics.add.collider(state.player, state.platforms);
     this.physics.add.collider(state.goal, state.platforms);
-    //this.physics.add.collider(state.bombs, state.platforms);
-    //this.physics.add.sprite(200, 100, 'monster2');
-    //state.monster.setCollideWorldBounds(true);
+
     this.physics.add.collider(state.monster, state.platforms);
-    this.physics.add.collider(state.monster2, state.platforms);
-    this.physics.add.collider(state.monster3, state.platforms);
     this.physics.add.collider(state.monster4, state.platforms);
-
-    state.spikes1.move = this.tweens.add({
-      targets: state.spikes1,
-      y: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2100,
-      yoyo: true,
-    });
-
-    state.spikes2.move = this.tweens.add({
-      targets: state.spikes2,
-      y: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2500,
-      yoyo: true,
-    });
-
-    state.spikes3.move = this.tweens.add({
-      targets: state.spikes3,
-      y: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2300,
-      yoyo: true,
-    });
-
-    state.spikes4.move = this.tweens.add({
-      targets: state.spikes4,
-      y: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2600,
-      yoyo: true,
-    });
 
     state.monster.move = this.tweens.add({
       targets: state.monster,
       x: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
       ease: 'Linear',
       repeat: -1,
-      duration: 1500,
-      yoyo: true,
-    });
-
-    state.monster2.move = this.tweens.add({
-      targets: state.monster2,
-      x: 600,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 1900,
-      yoyo: true,
-    });
-
-    state.monster3.move = this.tweens.add({
-      targets: state.monster3,
-      x: 900,
-      //alpha: { start: 200, from: 200, to: 300 },
-      ease: 'Linear',
-      repeat: -1,
-      duration: 1500,
+      duration: 2900,
       yoyo: true,
     });
 
     state.monster4.move = this.tweens.add({
       targets: state.monster4,
       x: 1100,
-      //alpha: { start: 200, from: 200, to: 300 },
       ease: 'Linear',
       repeat: -1,
-      duration: 1900,
+      duration: 2900,
       yoyo: true,
     });
 
@@ -158,6 +86,14 @@ export default class Level extends Phaser.Scene {
       state.player,
       state.coin,
       this.collectReward,
+      null,
+      this,
+    );
+
+    this.physics.add.overlap(
+      state.player,
+      state.goal,
+      this.nextLevel,
       null,
       this,
     );
@@ -208,5 +144,10 @@ export default class Level extends Phaser.Scene {
     coin.disableBody(true, true);
     state.score += 5;
     state.scoreText.setText(`Score: ${state.score}`);
+  }
+
+  nextLevel() {
+    this.scene.stop();
+    this.scene.start('LevelOne');
   }
 }

@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import BestScores from '../scenes/bestScores';
 import GameOver from '../scenes/gameOver';
 import Help from '../scenes/help';
+import LevelOne from '../scenes/levelOne';
 import Level from '../scenes/levelScene';
 import Menu from '../scenes/menu';
 import Preload from '../scenes/preloadScene';
@@ -29,6 +30,7 @@ export default {
     BestScores,
     Help,
     Level,
+    LevelOne,
     GameOver,
   ],
 };
