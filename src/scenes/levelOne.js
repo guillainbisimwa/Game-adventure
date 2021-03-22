@@ -147,6 +147,7 @@ export default class LevelOne extends Phaser.Scene {
           color: '#000000',
         });
         setTimeout(() => {
+          state.msg = 'Game Over';
           this.scene.stop();
           this.scene.start('GameOver');
         }, 2000);

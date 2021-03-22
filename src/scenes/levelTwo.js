@@ -197,6 +197,7 @@ export default class LevelTwo extends Phaser.Scene {
           color: '#000000',
         });
         setTimeout(() => {
+          state.msg = 'Game Over';
           this.scene.stop();
           this.scene.start('GameOver');
         }, 2000);
@@ -211,7 +212,8 @@ export default class LevelTwo extends Phaser.Scene {
   }
 
   nextLevel() {
+    state.msg = 'You won!!!';
     this.scene.stop();
-    this.scene.start('Menu');
+    this.scene.start('GameOver');
   }
 }
