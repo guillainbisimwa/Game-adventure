@@ -28,6 +28,11 @@ export default class GameOver extends Phaser.Scene {
       this.scene.stop();
       this.scene.start('Menu');
     });
+
+    st.scoresButton.on('pointerup', () => {
+      this.scene.stop();
+      this.scene.start('BestScores');
+    });
   }
 
   update() {

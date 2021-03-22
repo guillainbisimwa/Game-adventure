@@ -29,6 +29,10 @@ export default class Menu extends Phaser.Scene {
       // st.called = false;
       // setCalled();
     });
+    st.scoresButton.on('pointerup', () => {
+      this.scene.stop();
+      this.scene.start('BestScores');
+    });
   }
 
   update() {
