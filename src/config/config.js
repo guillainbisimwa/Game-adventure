@@ -4,6 +4,7 @@ import GameOver from '../scenes/gameOver';
 import Help from '../scenes/help';
 import LevelOne from '../scenes/levelOne';
 import Level from '../scenes/levelScene';
+import LevelTwo from '../scenes/levelTwo';
 import Menu from '../scenes/menu';
 import Preload from '../scenes/preloadScene';
 
@@ -31,6 +32,7 @@ export default {
     Help,
     Level,
     LevelOne,
+    LevelTwo,
     GameOver,
   ],
 };

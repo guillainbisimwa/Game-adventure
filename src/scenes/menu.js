@@ -26,8 +26,6 @@ export default class Menu extends Phaser.Scene {
       this.scene.start('Level');
       st.score = 0;
       // saveScore();
-      // st.called = false;
-      // setCalled();
     });
     st.scoresButton.on('pointerup', () => {
       this.scene.stop();

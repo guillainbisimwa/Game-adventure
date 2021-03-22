@@ -37,11 +37,6 @@ export default class LevelOne extends Phaser.Scene {
     state.monster3 = this.physics.add.sprite(800, 428, 'monster');
     state.monster4 = this.physics.add.sprite(1000, 328, 'monster');
 
-    state.spikes1 = this.physics.add.image(232, 0, 'spikes');
-    state.spikes2 = this.physics.add.image(678, 10, 'spikes');
-    state.spikes3 = this.physics.add.image(942, 10, 'spikes');
-    state.spikes4 = this.physics.add.image(1142, 0, 'spikes');
-
     state.platforms = this.physics.add.staticGroup();
     state.spikes = this.physics.add.staticGroup();
     state.coin = this.physics.add.staticGroup();
@@ -73,48 +68,12 @@ export default class LevelOne extends Phaser.Scene {
     this.physics.add.collider(state.monster3, state.platforms);
     this.physics.add.collider(state.monster4, state.platforms);
 
-    state.spikes1.move = this.tweens.add({
-      targets: state.spikes1,
-      y: 600,
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2100,
-      yoyo: true,
-    });
-
-    state.spikes2.move = this.tweens.add({
-      targets: state.spikes2,
-      y: 600,
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2500,
-      yoyo: true,
-    });
-
-    state.spikes3.move = this.tweens.add({
-      targets: state.spikes3,
-      y: 600,
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2300,
-      yoyo: true,
-    });
-
-    state.spikes4.move = this.tweens.add({
-      targets: state.spikes4,
-      y: 600,
-      ease: 'Linear',
-      repeat: -1,
-      duration: 2600,
-      yoyo: true,
-    });
-
     state.monster.move = this.tweens.add({
       targets: state.monster,
       x: 600,
       ease: 'Linear',
       repeat: -1,
-      duration: 1500,
+      duration: 2400,
       yoyo: true,
     });
 
@@ -124,15 +83,6 @@ export default class LevelOne extends Phaser.Scene {
       ease: 'Linear',
       repeat: -1,
       duration: 1900,
-      yoyo: true,
-    });
-
-    state.monster3.move = this.tweens.add({
-      targets: state.monster3,
-      x: 900,
-      ease: 'Linear',
-      repeat: -1,
-      duration: 1500,
       yoyo: true,
     });
 
@@ -160,7 +110,7 @@ export default class LevelOne extends Phaser.Scene {
       null,
       this,
     );
-    state.background.setTint(0xccaacc);
+    state.background.setTint(0x555555);
     state.cursors = this.input.keyboard.createCursorKeys();
   }
 
@@ -211,6 +161,7 @@ export default class LevelOne extends Phaser.Scene {
   }
 
   nextLevel() {
-    console.log(this);
+    this.scene.stop();
+    this.scene.start('LevelTwo');
   }
 }
