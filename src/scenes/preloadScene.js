@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 
 import bg from '../assets/bg.png';
 import play from '../assets/play.png';
-import bomb from '../assets/bomb.png';
 import scores from '../assets/scores.png';
 import help from '../assets/help.png';
 import back from '../assets/back.png';
@@ -41,7 +40,6 @@ export default class Preload extends Phaser.Scene {
   preload() {
     this.load.image('bg', bg);
     this.load.image('play', play);
-    this.load.image('bomb', bomb);
     this.load.image('scores', scores);
     this.load.image('help', help);
     this.load.image('back', back);
