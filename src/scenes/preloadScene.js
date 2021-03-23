@@ -12,6 +12,10 @@ import dude from '../assets/dude.png';
 import background from '../assets/Background/Background_01.png';
 import background2 from '../assets/Background/Background_03.png';
 
+import bgSound from '../assets/HurryWaterWorld.mp3';
+import rewardSound from '../assets/reward.mp3';
+import gameOverSound from '../assets/gameOver.mp3';
+
 import ground02 from '../assets/Platformer/Ground_02.png';
 import ground03 from '../assets/Platformer/Ground_03.png';
 import ground04 from '../assets/Platformer/Ground_04.png';
@@ -63,6 +67,10 @@ export default class Preload extends Phaser.Scene {
     this.load.image('door01', door01);
     this.load.image('coin', coin);
     this.load.image('apple', apple);
+
+    this.load.audio('bgSound', bgSound);
+    this.load.audio('rewardSound', rewardSound);
+    this.load.audio('gameOverSound', gameOverSound);
 
     this.load.spritesheet('dude', dude, {
       frameWidth: 30,
