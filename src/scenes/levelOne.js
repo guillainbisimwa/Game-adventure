@@ -34,7 +34,6 @@ export default class LevelOne extends Phaser.Scene {
     state.player = this.physics.add.sprite(80, 110, 'dude');
     state.monster = this.physics.add.sprite(310, 364, 'monster');
     state.monster2 = this.physics.add.sprite(310, 428, 'monster2');
-    state.monster3 = this.physics.add.sprite(800, 428, 'monster');
     state.monster4 = this.physics.add.sprite(1000, 328, 'monster');
 
     state.platforms = this.physics.add.staticGroup();
@@ -65,7 +64,6 @@ export default class LevelOne extends Phaser.Scene {
 
     this.physics.add.collider(state.monster, state.platforms);
     this.physics.add.collider(state.monster2, state.platforms);
-    this.physics.add.collider(state.monster3, state.platforms);
     this.physics.add.collider(state.monster4, state.platforms);
 
     state.monster.move = this.tweens.add({
