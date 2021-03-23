@@ -5,6 +5,7 @@ import Help from '../scenes/help';
 import LevelOne from '../scenes/levelOne';
 import Level from '../scenes/levelScene';
 import LevelTwo from '../scenes/levelTwo';
+import Main from '../scenes/main';
 import Menu from '../scenes/menu';
 import Preload from '../scenes/preloadScene';
 
@@ -27,6 +28,7 @@ export default {
   },
   scene: [
     Preload,
+    Main,
     Menu,
     BestScores,
     Help,
