@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { anim } from '../config/anim';
 import { state } from '../config/state';
 import { platformer } from './platformer';
+import { bgSound } from '../config/sound';
 
 export default class Level extends Phaser.Scene {
   constructor() {
@@ -9,6 +10,12 @@ export default class Level extends Phaser.Scene {
   }
 
   create() {
+    // const music = this.sound.add('bgSound');
+    // music.play();
+    const sound = bgSound(this);
+    state.sound = sound;
+    state.sound.play();
+
     state.active = true;
     state.background = this.add.image(0, 0, 'background');
 
@@ -57,7 +64,6 @@ export default class Level extends Phaser.Scene {
     );
 
     this.cameras.main.startFollow(state.player, true, 0.5, 0.5);
-    state.player.setCollideWorldBounds(true);
     this.physics.add.collider(state.player, state.platforms);
     this.physics.add.collider(state.goal, state.platforms);
 
@@ -133,21 +139,23 @@ export default class Level extends Phaser.Scene {
           color: '#000000',
         });
         setTimeout(() => {
-          state.msg = 'Game Over';
+          state.msg = 'Game over!';
           this.scene.stop();
           this.scene.start('GameOver');
-        }, 2000);
+        }, 1000);
       }
     }
   }
 
   collectReward(_player, coin) {
     coin.disableBody(true, true);
+    this.sound.add('rewardSound').play();
     state.score += 5;
     state.scoreText.setText(`Score: ${state.score}`);
   }
 
   nextLevel() {
+    this.sound.add('rewardSound').play();
     this.scene.stop();
     this.scene.start('LevelOne');
   }

@@ -7,6 +7,7 @@ export default class GameOver extends Phaser.Scene {
   }
 
   create() {
+    st.sound.stop();
     st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
     st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);

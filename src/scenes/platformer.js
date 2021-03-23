@@ -90,6 +90,7 @@ export const platformer = (context, state) => {
     state.monster,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -102,6 +103,7 @@ export const platformer = (context, state) => {
     state.monster2,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -114,6 +116,7 @@ export const platformer = (context, state) => {
     state.monster3,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -126,6 +129,7 @@ export const platformer = (context, state) => {
     state.monster4,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -138,6 +142,7 @@ export const platformer = (context, state) => {
     state.spikes1,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -150,6 +155,7 @@ export const platformer = (context, state) => {
     state.spikes2,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -162,6 +168,7 @@ export const platformer = (context, state) => {
     state.spikes3,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
@@ -174,6 +181,7 @@ export const platformer = (context, state) => {
     state.spikes4,
     () => {
       state.msg = 'Game Over';
+      context.sound.add('gameOverSound').play();
       context.scene.stop();
       context.scene.start('GameOver');
     },
