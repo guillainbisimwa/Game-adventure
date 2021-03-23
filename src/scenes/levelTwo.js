@@ -206,6 +206,7 @@ export default class LevelTwo extends Phaser.Scene {
   }
 
   collectReward(_player, coin) {
+    this.sound.add('rewardSound').play();
     coin.disableBody(true, true);
     state.score += 5;
     state.scoreText.setText(`Score: ${state.score}`);

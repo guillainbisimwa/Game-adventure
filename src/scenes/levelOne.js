@@ -155,6 +155,7 @@ export default class LevelOne extends Phaser.Scene {
 
   collectReward(_player, coin) {
     coin.disableBody(true, true);
+    this.sound.add('rewardSound').play();
     state.score += 5;
     state.scoreText.setText(`Score: ${state.score}`);
   }
