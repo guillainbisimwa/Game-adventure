@@ -196,11 +196,10 @@ export default class LevelTwo extends Phaser.Scene {
           fontSize: 36,
           color: '#000000',
         });
-        setTimeout(() => {
-          state.msg = 'Game Over';
-          this.scene.stop();
-          this.scene.start('GameOver');
-        }, 2000);
+        this.sound.add('gameOverSound').play();
+        state.msg = 'Game over!';
+        this.scene.stop();
+        this.scene.start('GameOver');
       }
     }
   }

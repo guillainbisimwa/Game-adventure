@@ -67,23 +67,23 @@ export const platformer = (context, state) => {
     .sprite(state.width - 20, 120, 'door01')
     .setScale(1);
 
-  context.physics.add.overlap(
-    state.player,
-    state.spikes,
-    () => {
-      context.add.text(state.player.x, 100, 'Game Over!', {
-        fontFamily: 'Arial',
-        fontSize: 36,
-        color: '#000000',
-      });
-      setTimeout(() => {
-        context.scene.stop();
-        context.scene.start('GameOver');
-      }, 2000);
-    },
-    null,
-    context,
-  );
+  // context.physics.add.overlap(
+  //   state.player,
+  //   state.spikes,
+  //   () => {
+  //     context.add.text(state.player.x, 100, 'Game Over!', {
+  //       fontFamily: 'Arial',
+  //       fontSize: 36,
+  //       color: '#000000',
+  //     });
+  //     setTimeout(() => {
+  //       context.scene.stop();
+  //       context.scene.start('GameOver');
+  //     }, 2000);
+  //   },
+  //   null,
+  //   context,
+  // );
 
   context.physics.add.overlap(
     state.player,
