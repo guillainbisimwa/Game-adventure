@@ -12,16 +12,20 @@ export default class Main extends Phaser.Scene {
   create() {
     st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
 
-    const print = this.add.text(350, 400, '');
+    const print = this.add.text(300, 400, '', { fontSize: '18px', fill: '#a21' });
 
     CreateLoginDialog(this, {
       x: 400,
       y: 300,
       title: 'Welcome',
-      username: 'abc',
+      username: '',
     }).on('login', (username) => {
-      if (username.length > 0) {
-        print.text = `${username}`;
+      if (username.length > 2) {
+        st.playerName = username;
+        this.scene.stop();
+        this.scene.start('Menu');
+      } else {
+        print.text = 'Enter a valid name';
       }
     }).popUp(500);
   }
