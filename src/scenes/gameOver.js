@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { state as st } from '../config/state';
 
+const fetch = require('node-fetch');
+
 export default class GameOver extends Phaser.Scene {
   constructor() {
     super('GameOver');
@@ -54,25 +56,28 @@ export default class GameOver extends Phaser.Scene {
     });
   }
 
-  saveScore(){
-    fetch('https://k-backend-api.herokuapp.com/api/scores', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body:JSON.stringify({
-        name: st.playerName,
-        scores: st.score,
-      })
-    }).then((response) => response.json())
-    .then((responseJson) => {
+  saveScore () {
+    const body = { name: st.playerName, socores: st.score };
 
-    })
-    .catch((error) => {
-        console.error(error);
-        
-    });
-  }
+    try {
+      const response =  fetch('https://k-backend-api.herokuapp.com/api/scores', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://gbisimwa.me/'
+        },
+        body: JSON.stringify(body),
+      });
+      if (response.ok) {
+        const result =  response.json();
+        console.log(result);
+        return result;
+      }
+      throw new Error('Cant submit request now');
+    } catch (error) {
+      return error;
+    }
+  };
 }
