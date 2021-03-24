@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
+
 import BestScores from '../scenes/bestScores';
 import GameOver from '../scenes/gameOver';
 import Help from '../scenes/help';
@@ -15,6 +17,14 @@ export default {
   height: 600,
   fps: { target: 60 },
   backgroundColor: '333',
+  plugins: {
+    scene: [{
+      key: 'rexUI',
+      plugin: UIPlugin,
+      mapping: 'rexUI',
+    },
+    ],
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -22,7 +32,7 @@ export default {
       enableBody: true,
     },
   },
-  parent: 'form',
+  parent: 'bg',
   dom: {
     createContainer: true,
   },
