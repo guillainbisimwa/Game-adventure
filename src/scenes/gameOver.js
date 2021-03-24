@@ -14,7 +14,7 @@ export default class GameOver extends Phaser.Scene {
     st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
     this.add.text(250, 150, `${st.msg}`, { fontSize: '50px', fill: '#000000' });
-    this.add.text(300, 240, `Your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
+    this.add.text(250, 240, `${st.playerName}, your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
 
     st.scoresButton.setInteractive({ useHandCursor: true });
     this.onHover(st.scoresButton);

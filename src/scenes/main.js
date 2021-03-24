@@ -20,7 +20,7 @@ export default class Main extends Phaser.Scene {
       title: 'Welcome',
       username: '',
     }).on('login', (username) => {
-      if (username.length > 2) {
+      if (username.length > 2 && username.length < 10) {
         st.playerName = username;
         this.scene.stop();
         this.scene.start('Menu');
