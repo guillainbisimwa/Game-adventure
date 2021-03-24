@@ -12,6 +12,7 @@ export default class GameOver extends Phaser.Scene {
     st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
     st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
+    this.saveScore();
 
     this.add.text(250, 150, `${st.msg}`, { fontSize: '50px', fill: '#000000' });
     this.add.text(250, 240, `${st.playerName}, your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
@@ -50,6 +51,28 @@ export default class GameOver extends Phaser.Scene {
     });
     obj.on('pointerout', () => {
       obj.setTint();
+    });
+  }
+
+  saveScore(){
+    fetch('https://k-backend-api.herokuapp.com/api/scores', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({
+        name: st.playerName,
+        scores: st.score,
+      })
+    }).then((response) => response.json())
+    .then((responseJson) => {
+
+    })
+    .catch((error) => {
+        console.error(error);
+        
     });
   }
 }
