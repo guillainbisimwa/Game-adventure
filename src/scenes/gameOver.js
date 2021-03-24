@@ -14,7 +14,16 @@ export default class GameOver extends Phaser.Scene {
     st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
     st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
-    this.saveScore();
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://k-backend-api.herokuapp.com/api/scores', true);
+
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = () => {
+
+    };
+    xhr.send(`name=${st.playerName}&scores=${st.score}`);
 
     this.add.text(250, 150, `${st.msg}`, { fontSize: '50px', fill: '#000000' });
     this.add.text(250, 240, `${st.playerName}, your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
@@ -55,29 +64,4 @@ export default class GameOver extends Phaser.Scene {
       obj.setTint();
     });
   }
-
-  saveScore () {
-    const body = { name: st.playerName, socores: st.score };
-
-    try {
-      const response =  fetch('https://k-backend-api.herokuapp.com/api/scores', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': 'http://gbisimwa.me/'
-        },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        const result =  response.json();
-        console.log(result);
-        return result;
-      }
-      throw new Error('Cant submit request now');
-    } catch (error) {
-      return error;
-    }
-  };
 }
