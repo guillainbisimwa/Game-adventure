@@ -69,13 +69,13 @@ const CreateLoginDialog = (scene, config, onSubmit) => {
     background: scene.rexUI.add.roundRectangle(0, 0, 10, 10, 10, COLOR_LIGHT),
     text: scene.add.text(0, 0, 'Login'),
     space: {
-      top: 8, bottom: 8, left: 8, right: 8 
+      top: 8, bottom: 8, left: 8, right: 8,
     },
   })
-        .setInteractive()
-        .on('pointerdown', function () {
-            loginDialog.emit('login', username);
-        });
+    .setInteractive()
+    .on('pointerdown', () => {
+      loginDialog.emit('login', username);
+    });
 
   const loginDialog = scene.rexUI.add.sizer({
     orientation: 'y',
@@ -85,7 +85,9 @@ const CreateLoginDialog = (scene, config, onSubmit) => {
     height,
   })
     .addBackground(background)
-    .add(titleField, 0, 'center', { top: 10, bottom: 10, left: 10, right: 10 }, false)
+    .add(titleField, 0, 'center', {
+      top: 10, bottom: 10, left: 10, right: 10,
+    }, false)
     .add(userNameField, 0, 'left', { bottom: 10, left: 10, right: 10 }, true)
     .add(loginButton, 0, 'center', { bottom: 10, left: 10, right: 10 }, false)
     .layout();

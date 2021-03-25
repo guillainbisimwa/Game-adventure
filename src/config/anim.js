@@ -1,4 +1,4 @@
-export const anim = (context) => {
+const anim = (context) => {
   context.anims.create({
     key: 'right',
     frames: context.anims.generateFrameNumbers('dude', { start: 8, end: 11 }),
@@ -27,3 +27,4 @@ export const anim = (context) => {
     repeat: -1,
   });
 };
+export default anim;
