@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import Phaser from 'phaser';
 import { state as st } from '../config/state';
 
@@ -32,6 +33,7 @@ export default class Main extends Phaser.Scene {
     }).popUp(500);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   update() {
   }
 }

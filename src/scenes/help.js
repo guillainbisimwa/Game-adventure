@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import onHover from '../config/onHover';
 import { state as st } from '../config/state';
 
 export default class Help extends Phaser.Scene {
@@ -35,7 +36,7 @@ export default class Help extends Phaser.Scene {
     });
 
     st.backButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.backButton);
+    onHover(st.backButton);
 
     st.backButton.on('pointerup', () => {
       this.scene.stop();
@@ -44,14 +45,5 @@ export default class Help extends Phaser.Scene {
   }
 
   update() {
-  }
-
-  onHover(obj) {
-    obj.on('pointerover', () => {
-      obj.setTint(0xecdccc);
-    });
-    obj.on('pointerout', () => {
-      obj.setTint();
-    });
   }
 }

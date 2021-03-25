@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import anim from '../config/anim';
 import { state } from '../config/state';
-import { platformer } from './platformer';
+import platformer from './platformer';
 import bgSound from '../config/sound';
 
 export default class Level extends Phaser.Scene {

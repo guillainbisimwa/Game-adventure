@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import onHover from '../config/onHover';
 import { state as st } from '../config/state';
 
 export default class GameOver extends Phaser.Scene {
@@ -27,13 +28,13 @@ export default class GameOver extends Phaser.Scene {
     this.add.text(250, 240, `${st.playerName}, your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
 
     st.scoresButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.scoresButton);
+    onHover(st.scoresButton);
 
     st.helpButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.helpButton);
+    onHover(st.helpButton);
 
     st.backButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.backButton);
+    onHover(st.backButton);
 
     st.backButton.on('pointerup', () => {
       this.scene.stop();
@@ -52,14 +53,5 @@ export default class GameOver extends Phaser.Scene {
   }
 
   update() {
-  }
-
-  onHover(obj) {
-    obj.on('pointerover', () => {
-      obj.setTint(0xecdccc);
-    });
-    obj.on('pointerout', () => {
-      obj.setTint();
-    });
   }
 }

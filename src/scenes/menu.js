@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import onHover from '../config/onHover';
 import { state as st } from '../config/state';
 
 export default class Menu extends Phaser.Scene {
@@ -15,19 +16,18 @@ export default class Menu extends Phaser.Scene {
     st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
 
     st.playButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.playButton);
+    onHover(st.playButton);
 
     st.scoresButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.scoresButton);
+    onHover(st.scoresButton);
 
     st.helpButton.setInteractive({ useHandCursor: true });
-    this.onHover(st.helpButton);
+    onHover(st.helpButton);
 
     st.playButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Level');
       st.score = 0;
-      // saveScore();
     });
     st.scoresButton.on('pointerup', () => {
       this.scene.stop();
@@ -41,14 +41,5 @@ export default class Menu extends Phaser.Scene {
   }
 
   update() {
-  }
-
-  onHover(obj) {
-    obj.on('pointerover', () => {
-      obj.setTint(0xecdccc);
-    });
-    obj.on('pointerout', () => {
-      obj.setTint();
-    });
   }
 }
