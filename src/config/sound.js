@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export const bgSound = (context) => context.sound.add('bgSound', {
+const bgSound = (context) => context.sound.add('bgSound', {
   mute: false,
   volume: 1,
   rate: 1,
@@ -8,3 +7,5 @@ export const bgSound = (context) => context.sound.add('bgSound', {
   loop: true,
   delay: 0,
 });
+
+export default bgSound;

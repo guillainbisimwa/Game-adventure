@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import anim from '../config/anim';
 import { state } from '../config/state';
 import { platformer } from './platformer';
-import { bgSound } from '../config/sound';
+import bgSound from '../config/sound';
 
 export default class Level extends Phaser.Scene {
   constructor() {
@@ -10,8 +10,6 @@ export default class Level extends Phaser.Scene {
   }
 
   create() {
-    // const music = this.sound.add('bgSound');
-    // music.play();
     const sound = bgSound(this);
     state.sound = sound;
     state.sound.play();

@@ -22,8 +22,10 @@ export default class Main extends Phaser.Scene {
     }).on('login', (username) => {
       if (username.length > 2 && username.length < 10) {
         st.playerName = username;
-        this.scene.stop();
-        this.scene.start('Menu');
+        this.scene.transition({
+          target: 'Menu',
+          duration: 500,
+        });
       } else {
         print.text = 'Enter a valid name';
       }
@@ -36,7 +38,7 @@ export default class Main extends Phaser.Scene {
 
 const getValue = Phaser.Utils.Objects.GetValue;
 
-const CreateLoginDialog = (scene, config, onSubmit) => {
+const CreateLoginDialog = (scene, config) => {
   let username = getValue(config, 'username', '');
   const title = getValue(config, 'title', 'Welcome');
   const x = getValue(config, 'x', 0);
