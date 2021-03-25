@@ -43,7 +43,4 @@ export default class Help extends Phaser.Scene {
       this.scene.start('Menu');
     });
   }
-
-  update() {
-  }
 }

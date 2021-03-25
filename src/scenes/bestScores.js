@@ -37,7 +37,4 @@ export default class BestScores extends Phaser.Scene {
       this.scene.start('Menu');
     });
   }
-
-  update() {
-  }
 }
