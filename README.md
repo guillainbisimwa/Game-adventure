@@ -2,7 +2,7 @@
 
 # Game-adventure
 
-> This project was built as JavaScript Capstone project at the end of JavaScript module in Microverse Curriculum.It is an RPG game built with Phaser3. The main gaol is to collect as many gifts as possible while having to avoid monsters. Press Left arrow to go feft, Right arrow to go right and Up arrow to jump.
+> This project was built as JavaScript Capstone project at the end of JavaScript module in Microverse Curriculum.It is an RPG game built with Phaser3. The main gaol is to collect as many gifts as possible while having to avoid monsters. Press Left arrow to go left, Right arrow to go right and Up arrow to jump.
 
 ![screenshot](https://github.com/guillainbisimwa/Game-adventure/blob/design/src/img/game.gif)
 

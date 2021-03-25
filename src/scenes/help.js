@@ -16,7 +16,7 @@ export default class Help extends Phaser.Scene {
     this.add.text(140, 180, `
     You need to collect 
     as many gifts as possible.
-    Press Left arrow to go feft;
+    Press Left arrow to go left;
     Right arrow to go right and
     Up arrow to jump.`, { fontSize: '25px', fill: '#000000' });
 
