@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import onHover from '../config/onHover';
-import { state as st } from '../config/state';
+import state from '../config/state';
 
 export default class Menu extends Phaser.Scene {
   constructor() {
@@ -8,33 +8,33 @@ export default class Menu extends Phaser.Scene {
   }
 
   create() {
-    st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
-    st.name = this.add.text(300, 130, `Hello ${st.playerName}!`, { fontSize: '25px', fill: '#000000' });
+    state.bg = this.add.image(400, 300, 'bg').setScale(0.8);
+    state.name = this.add.text(300, 130, `Hello ${state.playerName}!`, { fontSize: '25px', fill: '#000000' });
 
-    st.playButton = this.add.image(400, 240, 'play').setScale(0.8);
-    st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
-    st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
+    state.playButton = this.add.image(400, 240, 'play').setScale(0.8);
+    state.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
+    state.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
 
-    st.playButton.setInteractive({ useHandCursor: true });
-    onHover(st.playButton);
+    state.playButton.setInteractive({ useHandCursor: true });
+    onHover(state.playButton);
 
-    st.scoresButton.setInteractive({ useHandCursor: true });
-    onHover(st.scoresButton);
+    state.scoresButton.setInteractive({ useHandCursor: true });
+    onHover(state.scoresButton);
 
-    st.helpButton.setInteractive({ useHandCursor: true });
-    onHover(st.helpButton);
+    state.helpButton.setInteractive({ useHandCursor: true });
+    onHover(state.helpButton);
 
-    st.playButton.on('pointerup', () => {
+    state.playButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Level');
-      st.score = 0;
+      state.score = 0;
     });
-    st.scoresButton.on('pointerup', () => {
+    state.scoresButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('BestScores');
     });
 
-    st.helpButton.on('pointerup', () => {
+    state.helpButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Help');
     });

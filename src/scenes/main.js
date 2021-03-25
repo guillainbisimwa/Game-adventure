@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import Phaser from 'phaser';
-import { state as st } from '../config/state';
+import state from '../config/state';
 
 const COLOR_PRIMARY = 0x4e342e;
 const COLOR_LIGHT = 0x7b5e57;
@@ -11,7 +11,7 @@ export default class Main extends Phaser.Scene {
   }
 
   create() {
-    st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
+    state.bg = this.add.image(400, 300, 'bg').setScale(0.8);
 
     const print = this.add.text(300, 400, '', { fontSize: '18px', fill: '#a21' });
 
@@ -22,7 +22,7 @@ export default class Main extends Phaser.Scene {
       username: '',
     }).on('login', (username) => {
       if (username.length > 2 && username.length < 10) {
-        st.playerName = username;
+        state.playerName = username;
         this.scene.transition({
           target: 'Menu',
           duration: 500,

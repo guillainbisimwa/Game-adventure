@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import onHover from '../config/onHover';
-import { state as st } from '../config/state';
+import state from '../config/state';
 
 export default class GameOver extends Phaser.Scene {
   constructor() {
@@ -8,45 +8,45 @@ export default class GameOver extends Phaser.Scene {
   }
 
   create() {
-    st.sound.stop();
-    st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
-    st.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
-    st.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
-    st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
+    state.sound.stop();
+    state.bg = this.add.image(400, 300, 'bg').setScale(0.8);
+    state.scoresButton = this.add.image(400, 340, 'scores').setScale(0.8);
+    state.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
+    state.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
-    st.xhr = new XMLHttpRequest();
-    st.xhr.open('POST', 'https://k-backend-api.herokuapp.com/api/scores', true);
+    state.xhr = new XMLHttpRequest();
+    state.xhr.open('POST', 'https://k-backend-api.herokuapp.com/api/scores', true);
 
-    st.xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    state.xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    st.xhr.onreadystatechange = () => {
+    state.xhr.onreadystatechange = () => {
 
     };
-    st.xhr.send(`name=${st.playerName}&scores=${st.score}`);
+    state.xhr.send(`name=${state.playerName}&scores=${state.score}`);
 
-    this.add.text(250, 150, `${st.msg}`, { fontSize: '50px', fill: '#000000' });
-    this.add.text(250, 240, `${st.playerName}, your score is: ${st.score}`, { fontSize: '20px', fill: '#000000' });
+    this.add.text(250, 150, `${state.msg}`, { fontSize: '50px', fill: '#000000' });
+    this.add.text(250, 240, `${state.playerName}, your score is: ${state.score}`, { fontSize: '20px', fill: '#000000' });
 
-    st.scoresButton.setInteractive({ useHandCursor: true });
-    onHover(st.scoresButton);
+    state.scoresButton.setInteractive({ useHandCursor: true });
+    onHover(state.scoresButton);
 
-    st.helpButton.setInteractive({ useHandCursor: true });
-    onHover(st.helpButton);
+    state.helpButton.setInteractive({ useHandCursor: true });
+    onHover(state.helpButton);
 
-    st.backButton.setInteractive({ useHandCursor: true });
-    onHover(st.backButton);
+    state.backButton.setInteractive({ useHandCursor: true });
+    onHover(state.backButton);
 
-    st.backButton.on('pointerup', () => {
+    state.backButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Menu');
     });
 
-    st.scoresButton.on('pointerup', () => {
+    state.scoresButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('BestScores');
     });
 
-    st.helpButton.on('pointerup', () => {
+    state.helpButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Help');
     });

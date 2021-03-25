@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import onHover from '../config/onHover';
-import { state as st } from '../config/state';
+import state from '../config/state';
 
 export default class Help extends Phaser.Scene {
   constructor() {
@@ -8,8 +8,8 @@ export default class Help extends Phaser.Scene {
   }
 
   create() {
-    st.bg = this.add.image(400, 300, 'bg').setScale(0.8);
-    st.backButton = this.add.image(400, 540, 'back').setScale(0.8);
+    state.bg = this.add.image(400, 300, 'bg').setScale(0.8);
+    state.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
     this.add.text(340, 130, 'HELP', { fontSize: '50px', fill: '#000000' });
 
@@ -35,10 +35,10 @@ export default class Help extends Phaser.Scene {
       fill: '#000000',
     });
 
-    st.backButton.setInteractive({ useHandCursor: true });
-    onHover(st.backButton);
+    state.backButton.setInteractive({ useHandCursor: true });
+    onHover(state.backButton);
 
-    st.backButton.on('pointerup', () => {
+    state.backButton.on('pointerup', () => {
       this.scene.stop();
       this.scene.start('Menu');
     });

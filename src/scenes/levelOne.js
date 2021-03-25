@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import anim from '../config/anim';
-import { state } from '../config/state';
+import state from '../config/state';
 import platformer from './platformer';
 
 export default class LevelOne extends Phaser.Scene {
