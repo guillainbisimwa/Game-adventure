@@ -20,16 +20,10 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|png|jpe?g|svg|mp3|html)$/i,
+        test: /\.(png|jpe?g|gif|mp3)$/i,
         use: [
           {
             loader: 'file-loader',
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              disable: true,
-            },
           },
         ],
       },
