@@ -29,27 +29,28 @@ const postScore = async (user, score) => {
   }
 };
 
-const fetchScores = async () => {
-  let tenBestScores = '';
-  await fetch(URI, { mode: 'cors' })
-    .then(
-      (response) => {
-        if (response.status !== 200) {
-          return `Looks like there was a problem. Status Code: ${
-            response.status}`;
-        }
-        response.json().then((data) => {
-          data.sort((a, b) => b.scores - a.scores);
-          let i = 1;
-          data.slice(0, 10).forEach(element => {
-            tenBestScores += `${i}. ${element.name} - [${element.scores}] \n`;
-            i += 1;
-          });
-        });
-        return tenBestScores;
+const fetchScores = async (print) => {
+  try {
+    const response = await fetch(URI, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-    )
-    .catch((err) => (('Fetch Error :-S', err)));
+    });
+    if (response.ok) {
+      const result = await response.json();
+      let i = 1;
+      result.result.sort((a, b) => b.score - a.score).slice(0, 10).forEach(element => {
+        print.text += `${i}. ${element.user} - [${element.score}] \n`;
+        i += 1;
+      });
+    }
+    throw new Error('Cant get request now');
+  } catch (error) {
+    return error;
+  }
 };
 
 export { postScore, fetchScores };

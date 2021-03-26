@@ -15,15 +15,6 @@ export default class GameOver extends Phaser.Scene {
     state.helpButton = this.add.image(400, 440, 'help').setScale(0.8);
     state.backButton = this.add.image(400, 540, 'back').setScale(0.8);
 
-    // state.xhr = new XMLHttpRequest();
-    // state.xhr.open('POST', 'https://k-backend-api.herokuapp.com/api/scores', true);
-
-    // state.xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    // state.xhr.onreadystatechange = () => {
-
-    // };
-    // state.xhr.send(`name=${state.playerName}&scores=${state.score}`);
     postScore(state.playerName, state.score);
 
     this.add.text(250, 150, `${state.msg}`, { fontSize: '50px', fill: '#000000' });
