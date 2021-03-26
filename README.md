@@ -21,7 +21,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](http://gbisimwa.me/Game-adventure/)
+[Live Demo Link](http://gbisimwa.me/Game-adventure/dist/)
 
 ## Getting Started
 
