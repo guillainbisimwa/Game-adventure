@@ -4,6 +4,8 @@
 
 > This project was built as a JavaScript Capstone project at the end of the JavaScript module in the Microverse Curriculum. It is an RPG game built with Phaser3. The main goal is to collect as many gifts as possible while having to avoid monsters. Press the Left arrow to go left, Right arrow to go right, and Up arrow to jump.
 
+This is a 2D side-scrolling action game where players take control of a little girl, running, and jumping through the virtual city! The mission is to collect as many gifts as possible while avoiding an array of obstacles to reach a final goal.
+
 ![screenshot](https://github.com/guillainbisimwa/Game-adventure/blob/design/src/img/game.gif)
 
 Additional description about the project and its features.
