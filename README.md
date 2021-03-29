@@ -48,7 +48,7 @@ Once you've installed the project's dependencies, you can run the project using 
 To run the integration Tests locally using [Jest](https://jestjs.io/), just type the following commands over the terminal in Linux or Mac or the Windows cmd console:
 
 ```s
-$ npm run test
+$ npm test
 
 ```
 
