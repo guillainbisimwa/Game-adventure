@@ -1,0 +1,62 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack watch",
+    "start": "webpack serve --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillainbisimwa/Game.git"
+  },
+  "keywords": [
+    "Game",
+    "ES6",
+    "Phaser"
+  ],
+  "author": "Guillain BISIMWA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillainbisimwa/Game/issues"
+  },
+  "homepage": "https://github.com/guillainbisimwa/Game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "copy-webpack-plugin": "^8.1.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^7.0.1",
+    "jest-canvas-mock": "^2.3.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "jest": "^26.6.3",
+    "phaser": "^3.53.1",
+    "phaser3-rex-plugins": "^1.1.42",
+    "regenerator-runtime": "^0.11.1"
+  }
+}
